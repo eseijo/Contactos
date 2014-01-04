@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class ReceiveContactsFragment extends Fragment implements View.OnClickLis
 
     Button butSave;
     int i = 2;
+
+    ImageView iv;
 
     public View onCreateView(LayoutInflater infl,ViewGroup container,Bundle saved){
         return infl.inflate(R.layout.fragm_receive, container, false);
@@ -44,6 +47,9 @@ public class ReceiveContactsFragment extends Fragment implements View.OnClickLis
 
         butSave = (Button) getView().findViewById(R.id.but_save);
         butSave.setOnClickListener(this);
+
+        iv = (ImageView) getView().findViewById(R.id.imageView);
+        //iv.setImageURI();
 
         tvName.setText(rec.get(0));
 

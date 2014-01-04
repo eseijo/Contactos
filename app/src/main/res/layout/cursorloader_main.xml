@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal" >
-    <fragment android:name="com.example.edgar.cursorloadertest.CursorLoaderListFragment"
+    <fragment android:name="com.example.app.CursorLoaderListFragment"
         android:id="@+id/f1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

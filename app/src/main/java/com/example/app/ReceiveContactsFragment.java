@@ -98,7 +98,6 @@ public class ReceiveContactsFragment extends Fragment implements View.OnClickLis
             emailN = (rec.size()-x)==1 ? Intents.Insert.TERTIARY_EMAIL : (rec.size()-x)==2 ? Intents.Insert.SECONDARY_EMAIL : Intents.Insert.EMAIL;
             intent.putExtra(emailN, rec.get(x));
         }
-        
         startActivity(intent);
     }
 

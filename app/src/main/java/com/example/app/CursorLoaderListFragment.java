@@ -199,9 +199,11 @@ Log.d("LOG123", "getloader");
         res.add(name);
         curp.moveToNext();
         InputStream photoIS = openDisplayPhoto(Long.valueOf(curp.getString(0)));
-        InputStream stream = new ByteArrayInputStream(convertStreamToString(photoIS).getBytes());
 
-        Log.d("STREAMEQ", ""+photoIS.equals(stream));
+        if(photoIS!=null){
+            InputStream stream = new ByteArrayInputStream(convertStreamToString(photoIS).getBytes());
+            Log.d("STREAMEQ", ""+photoIS.equals(stream));
+        }
 
         if(photoIS!=null){
 

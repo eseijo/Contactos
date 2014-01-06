@@ -10,6 +10,7 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
@@ -49,9 +50,9 @@ public class CursorLoaderListFragment extends ListFragment
         LoaderManager.LoaderCallbacks<Cursor> {
 
 
-    ArrayList<Object> res = new ArrayList<Object>();
+    ArrayList<String> res = new ArrayList<String>();
 
-    String photoUri;
+    //String photoUri;
 
     ImageView iv;
 
@@ -197,7 +198,7 @@ Log.d("LOG123", "getloader");
                 null, null, null);
 
         res.add(name);
-        curp.moveToNext();
+        /*curp.moveToNext();
         InputStream photoIS = openDisplayPhoto(Long.valueOf(curp.getString(0)));
 
         if(photoIS!=null){
@@ -237,7 +238,7 @@ Log.d("LOG123", "getloader");
 
 
 
-        res.add(curp.getString(2));
+        res.add(curp.getString(2));*/
         while(curp.moveToNext()){
             res.add(curp.getString(2));
         }
@@ -250,9 +251,14 @@ Log.d("LOG123", "getloader");
             Log.d("LOG123", res.get(i).toString());
         }
 
+        Intent intent = new Intent();
+        intent.putExtra("res", res);
+        getActivity().setResult(getActivity().RESULT_OK, intent);
+        getActivity().finish();
+
     }
 
-    public InputStream openDisplayPhoto(long contactId) {
+    /*public InputStream openDisplayPhoto(long contactId) {
         Uri contactUri = ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId);
         Uri displayPhotoUri = Uri.withAppendedPath(contactUri, Contacts.Photo.DISPLAY_PHOTO);
         try {
@@ -262,7 +268,7 @@ Log.d("LOG123", "getloader");
         } catch (IOException e) {
             return null;
         }
-    }
+    }*/
 
     // These are the Contacts rows that we will retrieve.
     static final String[] CONTACTS_SUMMARY_PROJECTION = new String[] {
@@ -328,8 +334,8 @@ Log.d("LOG123", "getloader");
         iv = (ImageView) getView().findViewById(R.id.imageView);
     }
 
-    public static String convertStreamToString(InputStream is) {
+    /*public static String convertStreamToString(InputStream is) {
         java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
         return s.hasNext() ? s.next() : "";
-    }
+    }*/
 }

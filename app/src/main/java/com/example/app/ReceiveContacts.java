@@ -1,5 +1,6 @@
 package com.example.app;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,26 +15,28 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ReceiveContactsFragment extends Fragment implements View.OnClickListener {
+public class ReceiveContacts extends Activity implements View.OnClickListener {
 
     ArrayList<String> rec = new ArrayList<String>();
 
     TextView tvName;
     TextView tvNumber;
     TextView tvEmail;
+    TextView tvNameT;
+    TextView tvNumberT;
+    TextView tvEmailT;
 
     Button butSave;
     int i = 2;
 
-    ImageView iv;
-
-    public View onCreateView(LayoutInflater infl,ViewGroup container,Bundle saved){
-        return infl.inflate(R.layout.fragm_receive, container, false);
-    }
+    //ImageView iv;
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.fragm_receive);
+
         rec.add("Nuevo");
         rec.add("(697) 789-356");
         rec.add("(697) 789-456");
@@ -41,14 +44,17 @@ public class ReceiveContactsFragment extends Fragment implements View.OnClickLis
         rec.add("edgar.seijo@gmail.com");
         rec.add("edgr.seij@gmail.com");
 
-        tvName = (TextView) getView().findViewById(R.id.tv_name);
-        tvNumber = (TextView) getView().findViewById(R.id.tv_number);
-        tvEmail = (TextView) getView().findViewById(R.id.tv_email);
+        tvName = (TextView) findViewById(R.id.tv_name);
+        tvNumber = (TextView) findViewById(R.id.tv_number);
+        tvEmail = (TextView) findViewById(R.id.tv_email);
+        tvNameT = (TextView) findViewById(R.id.tv_nameT);
+        tvNumberT = (TextView) findViewById(R.id.tv_numberT);
+        tvEmailT = (TextView) findViewById(R.id.tv_emailT);
 
-        butSave = (Button) getView().findViewById(R.id.but_save);
+        butSave = (Button) findViewById(R.id.but_save);
         butSave.setOnClickListener(this);
 
-        iv = (ImageView) getView().findViewById(R.id.imageView);
+        //iv = (ImageView) getView().findViewById(R.id.imageView);
         //iv.setImageURI();
 
         tvName.setText(rec.get(0));

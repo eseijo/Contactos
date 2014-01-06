@@ -3,6 +3,10 @@
 
     <string name="app_name">Contactos</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="description">Selecciona o recibe un contacto:</string>
+    <string name="but_sel_name">Seleccionar contacto</string>
+    <string name="tv_send">Datos a enviar:</string>
+    <string name="tv_name_str">Nombre: </string><string name="tv_number_str">Número:</string><string name="tv_email_str">Email:</string><string name="but_send_str">Guardar</string><string name="but_rec_str">Recibir contacto</string>
 
 </resources>

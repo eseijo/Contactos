@@ -25,6 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CursorLoaderList"
+            android:label="Seleccionar contacto" />
+        <activity
+            android:name=".ReceiveContacts"
+            android:label="Gestionar contacto" />
     </application>
 
 </manifest>
